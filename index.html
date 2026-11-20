@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Senior Sales AE campaign: your LinkedIn post</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#2E5CFB; --blue-press:#224BD6; --yellow:#F1C834; --ink:#071E24;
+  --cream:#F4F0ED; --sand:#EADCD1; --green:#38B238; --green-hover:#2E9A2E; --hair:#E4DCD1;
+  --bg:var(--cream); --surface:#FFFFFF; --text:var(--ink); --muted:#4d5a5e;
+  --chip:#FFFFFF; --chip-border:var(--sand); --chip-on:var(--blue); --chip-on-text:#FFFFFF;
+  --post-bg:#FBF8F5; --header-text:var(--cream);
+  color-scheme: light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1D52; --surface:#16287A; --text:#F4F0ED; --muted:#C9C3DD;
+    --chip:#16287A; --chip-border:#2A3F96; --chip-on:#F1C834; --chip-on-text:#071E24;
+    --post-bg:#122266; --hair:#2A3F96; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F1D52; --surface:#16287A; --text:#F4F0ED; --muted:#C9C3DD;
+  --chip:#16287A; --chip-border:#2A3F96; --chip-on:#F1C834; --chip-on-text:#071E24;
+  --post-bg:#122266; --hair:#2A3F96; color-scheme: dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.hero{background:radial-gradient(120% 140% at 85% 0%, #4a73ff 0%, var(--blue) 55%, #1f4be8 100%);
+  color:var(--header-text);border-radius:0 0 40px 40px;padding:44px 24px 56px}
+.wrap{max-width:760px;margin:0 auto}
+.hero h1{font-family:"Bricolage Grotesque","Instrument Sans",-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-weight:800;
+  font-size:clamp(44px,9vw,84px);line-height:.95;letter-spacing:-.02em;margin:0 0 18px;text-transform:lowercase}
+.hero h1 span{display:block;color:var(--yellow)}
+.hero p{margin:0;font-size:18px;max-width:52ch;opacity:.95}
+.hero .role{display:inline-block;margin-top:22px;background:var(--yellow);color:var(--ink);
+  font-weight:700;border-radius:999px;padding:8px 18px;font-size:15px}
+main{padding:36px 24px 64px}
+.pick{margin-bottom:34px}
+.pick h2{font-family:"Bricolage Grotesque","Instrument Sans",sans-serif;font-weight:700;font-size:24px;margin:0 0 14px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{appearance:none;border:2px solid var(--chip-border);background:var(--chip);color:var(--text);
+  font:inherit;font-weight:600;font-size:16px;padding:10px 18px;border-radius:999px;cursor:pointer;min-height:44px}
+.chip:hover{border-color:var(--blue)}
+.chip[aria-pressed="true"]{background:var(--chip-on);border-color:var(--chip-on);color:var(--chip-on-text)}
+.chip:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+.empty{color:var(--muted);margin:0}
+#result{display:none}
+#result.show{display:block;animation:rise .35s ease-out}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){#result.show{animation:none}}
+.slot{background:var(--yellow);color:var(--ink);border-radius:24px;padding:28px 28px 26px;margin-bottom:28px}
+.slot .who{font-weight:600;margin:0 0 6px;font-size:16px}
+.slot .when{font-family:"Bricolage Grotesque","Instrument Sans",sans-serif;font-weight:800;
+  font-size:clamp(34px,7vw,56px);line-height:1;letter-spacing:-.02em;margin:0}
+.slot .time{display:block;margin-top:6px}
+.slot .local{margin:14px 0 0;font-size:16px}
+.slot .countdown{display:inline-block;margin-top:12px;background:var(--ink);color:var(--yellow);
+  border-radius:999px;padding:5px 14px;font-weight:700;font-size:14px}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:18px}
+.step{background:var(--surface);border:2px solid var(--hair);border-radius:20px;padding:22px}
+.step-head{display:flex;gap:14px;align-items:flex-start}
+.num{flex:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
+  font-weight:800;font-family:"Bricolage Grotesque",sans-serif;font-size:19px;color:#fff}
+.n1{background:#F56B3F}.n2{background:#AE47FF}.n3{background:var(--blue)}
+.step h3{margin:4px 0 4px;font-size:19px;font-weight:700}
+.step p{margin:0;color:var(--muted);font-size:15.5px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.btn{appearance:none;border:0;font:inherit;font-weight:700;font-size:16px;border-radius:999px;
+  padding:12px 22px;min-height:46px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn-green{background:var(--green);color:#fff}.btn-green:hover{background:var(--green-hover)}
+.btn-blue{background:var(--blue);color:#fff}.btn-blue:hover{background:var(--blue-press)}
+.btn-ghost{background:transparent;color:var(--text);border:2px solid var(--chip-border)}
+.btn-ghost:hover{border-color:var(--blue)}
+.btn:active{transform:translateY(1px)}
+.btn svg{width:18px;height:18px;flex:none}
+.post{margin-top:16px;background:var(--post-bg);border:2px solid var(--hair);border-radius:16px;
+  padding:18px;white-space:pre-wrap;word-break:break-word;font-size:15.5px;line-height:1.55;max-height:360px;overflow:auto}
+.done{font-weight:700;color:var(--green);font-size:15px;align-self:center}
+.note{margin-top:16px;border-left:4px solid var(--yellow);padding:4px 0 4px 16px;color:var(--muted);font-size:15.5px}
+.note strong{color:var(--text)}
+details{margin-top:44px;border-top:2px solid var(--hair);padding-top:22px}
+summary{cursor:pointer;font-weight:700;font-size:18px;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";margin-left:10px;color:var(--blue);font-weight:800}
+details[open] summary::after{content:"\2212"}
+.day{margin-top:20px}
+.day h4{margin:0 0 8px;font-size:16px;font-family:"Bricolage Grotesque",sans-serif}
+.day ul{list-style:none;margin:0;padding:0;border:2px solid var(--hair);border-radius:16px;overflow:hidden}
+.day li{display:flex;justify-content:space-between;gap:12px;padding:10px 16px;font-size:15px;background:var(--surface)}
+.day li+li{border-top:1px solid var(--hair)}
+.day li span:last-child{color:var(--muted);text-align:right}
+.day li.me{background:var(--yellow);color:var(--ink)}
+.day li.me span:last-child{color:var(--ink)}
+.foot{margin-top:40px;color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <h1>your post,<span>ready to go</span></h1>
+    <p>Pick your team, then your name. You’ll get your publishing time, your post text and the video, in three steps.</p>
+    <div class="role">Senior Sales Account Executive</div>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <section class="pick" aria-labelledby="h-team">
+      <h2 id="h-team">Your team</h2>
+      <div class="chips" id="teams" role="group" aria-labelledby="h-team"></div>
+    </section>
+    <section class="pick" aria-labelledby="h-name">
+      <h2 id="h-name">Your name</h2>
+      <div class="chips" id="names" role="group" aria-labelledby="h-name"><p class="empty">Choose your team first.</p></div>
+    </section>
+
+    <section id="result" aria-live="polite">
+      <div class="slot">
+        <p class="who" id="who"></p>
+        <p class="when"><span id="day"></span><span class="time" id="time"></span></p>
+        <p class="local" id="local"></p>
+        <span class="countdown" id="countdown"></span>
+      </div>
+      <ol class="steps">
+        <li class="step">
+          <div class="step-head"><div class="num n1" aria-hidden="true">1</div>
+            <div><h3>Download the video</h3><p>Everyone posts the same video. Save it to your computer or phone first.</p></div></div>
+          <div class="actions">
+            <a class="btn btn-ghost" id="dl" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>Download video</a>
+            <a class="btn btn-ghost" id="view" target="_blank" rel="noopener">Open in Google Drive</a>
+          </div>
+        </li>
+        <li class="step">
+          <div class="step-head"><div class="num n2" aria-hidden="true">2</div>
+            <div><h3>Copy your post</h3><p>This text was written for you. You can tweak a word or two so it sounds like you.</p></div></div>
+          <div class="post" id="post" tabindex="0"></div>
+          <div class="actions">
+            <button class="btn btn-green" id="copy" type="button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Copy post</button>
+            <span class="done" id="copied" hidden>Copied</span>
+          </div>
+        </li>
+        <li class="step">
+          <div class="step-head"><div class="num n3" aria-hidden="true">3</div>
+            <div><h3>Post it on LinkedIn</h3><p>LinkedIn opens with your text filled in. Attach the video and post at your time.</p></div></div>
+          <div class="actions">
+            <a class="btn btn-blue" id="li" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.2 21 14.5V21h-4v-5.8c0-1.4-.03-3.2-1.95-3.2-1.95 0-2.25 1.52-2.25 3.1V21H9z"/></svg>Open LinkedIn with my post</a>
+          </div>
+          <p class="note"><strong>Tag Elevate Teams before you post.</strong> LinkedIn won’t turn “@Elevate Teams” into a tag on its own. Delete it, type @Elevate in the same spot and pick Elevate Teams (the giraffe logo) from the list. It turns blue when the tag works.</p>
+          <p class="note">If the text doesn’t show up in LinkedIn, just paste it. The button already copied it for you.</p>
+        </li>
+      </ol>
+    </section>
+
+    <details>
+      <summary>See the full schedule</summary>
+      <div id="schedule"></div>
+    </details>
+    <p class="foot">All times are Eastern Time (ET). Questions about your post? Ask the recruitment team.</p>
+  </div>
+</main>
+<script>
+const POSTS = [{"dept": "Sales", "role": "VP of Sales & Partnerships", "name": "Kyle Kuehn", "date": "2026-11-23", "time": "08:00", "text": "I'm hiring a Senior Sales Account Executive for my team at Elevate Teams.\n\nMost of my week is spent with agency owners, associations and referral partners. Our team is growing, and I need another closer who can take a conversation with an independent agency owner and turn it into a long-term partnership.\n\nAbout half the pipeline comes from us: inbound leads, conferences, referrals. The other half you build yourself. Either way, once the deal is yours, you own it from first call to signed agreement.\n\nIf you have 5+ years of full-cycle B2B sales and a track record of hitting quota, I want to talk to you.\n\nU.S.-based, 100% remote.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\nKnow someone who fits? Tag them below.\n\n@Elevate Teams #Hiring #SalesJobs #InsuranceAgency"}, {"dept": "Sales", "role": "Senior Sales Account Executive", "name": "Antonio Love", "date": "2026-11-23", "time": "11:00", "text": "I joined Elevate Teams as a Senior Sales Account Executive this fall, and we're hiring another one.\n\nHere's what the job looks like from my seat. Half the pipeline comes in through inbound leads, conferences and referrals. The other half you go find. Every conversation is with an independent agency owner who's stretched thin, and the best calls start with listening, not pitching.\n\nIf you've closed full-cycle B2B deals for 5+ years and you don't give up after two unanswered emails, you'd fit right in.\n\nU.S.-based, remote.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\nQuestions about the role? Send me a message.\n\n@Elevate Teams #Hiring #AccountExecutive #SalesJobs"}, {"dept": "Leadership", "role": "Visionary/Head of Marketing", "name": "Stanley Meytin", "date": "2026-11-23", "time": "14:00", "text": "When we started Elevate Teams, every client began with a conversation with an agency owner who had more work than people. That hasn't changed.\n\nWhat has changed is how many of those conversations we're having. So we're adding a Senior Sales Account Executive to the team.\n\nWe're looking for a real closer: someone who can work an inbound lead in the morning, open a new door in the afternoon and follow every deal through to a signed agreement. 5+ years of full-cycle B2B sales. A history of hitting quota.\n\nU.S.-based, 100% remote.\nSee the role 👉 https://www.linkedin.com/jobs/view/4489952835/\n\nIf you know someone who fits, tag them. 🦒\n\n@Elevate Teams #Hiring #SalesJobs #InsuranceAgency"}, {"dept": "Leadership", "role": "Visionary/Head of Finances", "name": "Dominic Piccirillo", "date": "2026-11-24", "time": "08:00", "text": "As a former agency owner, I know the difference between a salesperson who pitches and one who listens. Agency owners remember the second one.\n\nThat's who we're looking for. Elevate Teams is hiring a Senior Sales Account Executive to sell to independent agency owners who need the right people on their team.\n\nYou'll work inbound leads, build your own pipeline and own every deal end to end. If you have 5+ years of full-cycle B2B sales, a quota track record and you're comfortable asking for the business, take a look.\n\nU.S.-based, remote.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs #AgencyOwners"}, {"dept": "Leadership", "role": "COO - Integrator", "name": "Jonathan Perez", "date": "2026-11-24", "time": "11:00", "text": "Every new client at Elevate Teams starts with one conversation. From an operations seat, I see how much of what happens next depends on how that conversation went.\n\nWe're hiring a Senior Sales Account Executive to have more of them. Someone who sets clear expectations, follows up until there's a decision and owns the deal from first contact to signed agreement.\n\nAbout half the pipeline is inbound. The other half is yours to build. We run on EOS, so you'll have clear goals and real ownership of your number.\n\n5+ years of full-cycle B2B sales. U.S.-based, remote.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs #Leadership"}, {"dept": "Sales", "role": "Head of Talent Curation", "name": "Cari Gelber", "date": "2026-11-24", "time": "14:00", "text": "Most of my day is spent on calls with independent agency owners. Some are ready to move today. Others need a few conversations first.\n\nKnowing what to do with both is the job. That's why we're hiring a Senior Sales Account Executive to work alongside me.\n\nThe right person listens before pitching, handles objections calmly and keeps following up long after most people would stop. When the calendar is quiet, they go find new business.\n\n5+ years of full-cycle B2B sales. U.S.-based, remote.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs #InsuranceAgency"}, {"dept": "Recruitment", "role": "Head of Recruitment", "name": "Mariel Blandon", "date": "2026-11-25", "time": "08:00", "text": "My team is recruiting for a role I'm really excited about: Senior Sales Account Executive at Elevate Teams.\n\nWe're looking for a closer with 5+ years of full-cycle B2B sales. Someone who has carried a quota, works inbound and outbound, and is comfortable selling directly to business owners.\n\nIt's U.S.-based and 100% remote.\n\nIf that's you, apply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\nIf it's someone you know, tag them below. Referrals are always welcome. 💛\n\n@Elevate Teams #Hiring #Recruiting #SalesJobs"}, {"dept": "Client Success", "role": "Head of Client Success", "name": "Thomie Venisee", "date": "2026-11-25", "time": "11:00", "text": "Every deal our sales team closes becomes a partnership my team takes care of. So I care a lot about who sits in this seat.\n\nThe best salespeople I've worked with set honest expectations from the first call. That makes everything after the signature easier, for the client and for us.\n\nWe're hiring a Senior Sales Account Executive who sells that way: inbound and outbound, full cycle, with 5+ years of B2B experience.\n\nU.S.-based, remote.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #ClientSuccess #SalesJobs"}, {"dept": "Client Success", "role": "Client Success Manager", "name": "Cailyn Albino", "date": "2026-11-25", "time": "14:00", "text": "The partnerships I manage all started the same way: a sales conversation that got an agency owner to say yes.\n\nWe're hiring a Senior Sales Account Executive to have more of those conversations. You'll work inbound leads, go after new ones and own every deal from first call to signature.\n\n5+ years of full-cycle B2B sales. U.S.-based, remote.\n\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs #InsuranceAgency"}, {"dept": "Client Success", "role": "Client Success Manager", "name": "Lewis Sabater", "date": "2026-11-30", "time": "08:00", "text": "In Client Success, I see the agencies we work with after the deal is done. Many of them start in the same place: an owner buried in work who needs the right people.\n\nOur next Senior Sales Account Executive will be the first person they talk to. We're looking for a proactive closer with 5+ years of full-cycle B2B sales who can handle inbound leads and build their own pipeline.\n\nU.S.-based, remote.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs #AgencyOwners"}, {"dept": "Client Success", "role": "Process and Quality Specialist", "name": "Alma Rodriguez", "date": "2026-11-30", "time": "11:00", "text": "From the process side, the best sales cycles look the same: clear discovery, steady follow-up, no loose ends.\n\nElevate Teams is hiring a Senior Sales Account Executive who works that way. Organized, persistent and comfortable asking for the business, with 5+ years of full-cycle B2B sales.\n\nInbound and outbound. U.S.-based, remote.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs #ProcessImprovement"}, {"dept": "Training & Coaching", "role": "Head of Training & Coaching", "name": "Melissa Rivera", "date": "2026-11-30", "time": "14:00", "text": "My team trains the professionals our clients hire, and every one of those placements starts with a sales conversation.\n\nThat's why this hire matters to me. We're looking for a Senior Sales Account Executive who can show an agency owner what a well-trained team member can take off their plate, then close the deal.\n\n5+ years of full-cycle B2B sales. Inbound and outbound. U.S.-based, remote.\n\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs #InsuranceAgency"}, {"dept": "Leadership", "role": "Executive Assistant to Co-Founder", "name": "Sandra Del Risco", "date": "2026-11-26", "time": "14:00", "text": "I help organize the conferences where our team meets agency owners. A good conversation at an event only matters if someone follows up after it.\n\nThat's who we're looking for: a Senior Sales Account Executive who turns a handshake at a booth into a signed partnership. Full-cycle B2B, inbound and outbound, 5+ years of experience.\n\nThe role is U.S.-based and remote. If you know someone who fits, send them this 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs"}, {"dept": "Leadership", "role": "Executive Assistant to Co-Founder", "name": "Victoria Chafardet", "date": "2026-11-26", "time": "15:30", "text": "Supporting a co-founder, I see how much of our business depends on relationships with agency owners.\n\nWe're hiring a Senior Sales Account Executive to build more of them. Someone who listens first, follows up with discipline and owns every deal from the first call to the signature.\n\n5+ years of full-cycle B2B sales. U.S.-based, 100% remote.\nApply or share 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs"}, {"dept": "Leadership", "role": "Executive Assistant to COO", "name": "Diana Vasquez", "date": "2026-11-26", "time": "17:00", "text": "Working with our COO, I see how clear goals shape every role here. We run on EOS, so everyone knows their number and owns it.\n\nOur next Senior Sales Account Executive will own one of the most important numbers in the company. We're looking for a closer with 5+ years of full-cycle B2B sales who works inbound and outbound.\n\nU.S.-based, remote, EST hours.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #RemoteJobs"}, {"dept": "Sales", "role": "Executive Assistant and Partnerships Coordinator", "name": "Sofia Zamora", "date": "2026-11-23", "time": "12:30", "text": "I work with Kyle on partnerships every day, so I see how many conversations with agencies, associations and referral partners come through our team.\n\nWe need another closer to take those conversations all the way. The role is Senior Sales Account Executive: full-cycle B2B, about half inbound and half pipeline you build yourself.\n\nU.S.-based, remote.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs"}, {"dept": "Sales", "role": "Lead Generator", "name": "Matheus Siqueira", "date": "2026-11-23", "time": "17:00", "text": "My job is to find agency owners who need help and start the conversation. What happens after that depends on the person who picks it up.\n\nWe're hiring a Senior Sales Account Executive to be that person. Someone who takes the lead, runs real discovery and keeps following up until there's an answer. And when the list runs dry, they go prospecting on their own.\n\n5+ years of full-cycle B2B sales. U.S.-based, remote.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs"}, {"dept": "Marketing", "role": "Marketing Manager", "name": "Jessica Siqueira", "date": "2026-11-24", "time": "12:30", "text": "Marketing can fill a calendar with inbound leads. What happens on those calls is up to sales.\n\nWe're hiring a Senior Sales Account Executive who knows how to turn an inbound lead into a partnership, and who doesn't wait for the next one to show up. Prospecting, discovery, objection handling, close.\n\n5+ years of full-cycle B2B sales. U.S.-based, remote.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs"}, {"dept": "Marketing", "role": "Creative Director", "name": "Ana Santos", "date": "2026-11-25", "time": "12:30", "text": "When we design a campaign, we're telling agency owners a story about what the right team can do for them. Someone has to finish that story on a sales call.\n\nWe're hiring a Senior Sales Account Executive to do it: a closer who listens first, handles objections with confidence and asks for the business. Inbound and outbound, 5+ years of B2B sales.\n\nU.S.-based, remote.\nSee the role 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs"}, {"dept": "Marketing", "role": "Brand & Growth Content Strategist", "name": "Quetzalli Flores", "date": "2026-11-25", "time": "17:00", "text": "I write a lot of our client stories. Every one of them starts the same way: an agency owner who got on a call with our team and said yes.\n\nWe're hiring a Senior Sales Account Executive to start more of those stories. 5+ years of full-cycle B2B sales, comfortable with inbound leads and outbound prospecting, and the patience to follow up until there's a decision.\n\nU.S.-based, remote.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs"}, {"dept": "Marketing", "role": "Junior Designer", "name": "Jade Yanez", "date": "2026-11-30", "time": "15:30", "text": "I design a lot of what agency owners see from us before they ever talk to someone. The next step is a great sales conversation.\n\nWe're hiring a Senior Sales Account Executive to have it: a closer with 5+ years of full-cycle B2B sales who works inbound leads and builds their own pipeline.\n\nU.S.-based, 100% remote.\nApply or share 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #RemoteJobs"}, {"dept": "Client Success", "role": "Client Success Specialist", "name": "Karla Fontes", "date": "2026-11-27", "time": "08:00", "text": "In Client Success, I talk with agency owners after they sign. The happiest ones got clear answers and steady follow-up before they ever signed.\n\nThat's the kind of salesperson we're hiring. Senior Sales Account Executive: full-cycle B2B, inbound and outbound, 5+ years of experience and a habit of following up until there's a decision.\n\nU.S.-based, remote.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs"}, {"dept": "Client Success", "role": "Client Success Specialist", "name": "Daniela Mendez", "date": "2026-11-27", "time": "09:30", "text": "Every client I support was once a lead that someone on our sales team followed up with. Sometimes more than once.\n\nWe're hiring a Senior Sales Account Executive who's comfortable with that: prospecting, nurturing the owners who aren't ready yet and closing the ones who are.\n\n5+ years of full-cycle B2B sales. U.S.-based, remote.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs"}, {"dept": "Client Success", "role": "Client Success Specialist", "name": "David Hernandez", "date": "2026-11-27", "time": "11:00", "text": "I recently joined Client Success at Elevate Teams, and one thing stood out fast: how much the first sales conversation shapes everything after it.\n\nWe're hiring a Senior Sales Account Executive to have more of those conversations. Full-cycle B2B, inbound and outbound, 5+ years of experience selling to business owners.\n\nU.S.-based, remote.\nDetails here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs"}, {"dept": "Client Success", "role": "Client Success Assistant", "name": "Adriane Rossel", "date": "2026-11-29", "time": "15:30", "text": "Behind every agency we support, there's a sales conversation where someone explained what we do clearly enough for an owner to say yes.\n\nWe're looking for our next Senior Sales Account Executive to have those conversations. Someone who listens, asks good questions and follows every deal to a decision.\n\n5+ years of full-cycle B2B sales. U.S.-based, remote.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs"}, {"dept": "Client Success", "role": "Client Success Assistant", "name": "Rocio Blazquez", "date": "2026-11-29", "time": "17:00", "text": "Not every agency owner is ready on the first call. Some need three conversations. Some need ten.\n\nWe're hiring a Senior Sales Account Executive who knows what to do with both: close the ones who are ready, nurture the ones who aren't. 5+ years of full-cycle B2B sales, inbound and outbound.\n\nU.S.-based, remote.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs"}, {"dept": "Client Success", "role": "Client Success IT Coordinator", "name": "Daniel Paublini", "date": "2026-11-30", "time": "09:30", "text": "On the IT side, I see the tools our team uses to keep every client conversation on track. Tools help. The person using them makes the difference.\n\nWe're hiring a Senior Sales Account Executive who keeps an accurate CRM, works inbound and outbound and follows every deal through to a decision. 5+ years of full-cycle B2B sales.\n\nU.S.-based, remote, full time.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #RemoteJobs"}, {"dept": "Client Success", "role": "Client Success IT Specialist", "name": "Luis Martinez", "date": "2026-11-30", "time": "12:30", "text": "The best systems in the world won't close a deal. A great salesperson will.\n\nElevate Teams is hiring a Senior Sales Account Executive who builds their own pipeline, handles inbound leads and owns every deal end to end. 5+ years of full-cycle B2B sales and a quota track record.\n\nU.S.-based, remote.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs"}, {"dept": "Operations", "role": "Head of Operations", "name": "Gabriela Rodriguez", "date": "2026-11-24", "time": "17:00", "text": "From an operations seat, I love a role with a clear lane. This one has it: take the deal from first contact to signed agreement and own every step.\n\nElevate Teams is hiring a Senior Sales Account Executive, U.S.-based and remote, with 5+ years of full-cycle B2B sales.\n\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs"}, {"dept": "Operations", "role": "Process and Quality Assurance Specialist", "name": "Laura Toro", "date": "2026-11-27", "time": "12:30", "text": "In quality assurance, I look for consistency: the same good process, every time. The best salespeople work the same way.\n\nWe're hiring a Senior Sales Account Executive who runs real discovery, follows up on every opportunity and keeps the CRM accurate, deal after deal. 5+ years of full-cycle B2B sales, inbound and outbound.\n\nU.S.-based, remote.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs"}, {"dept": "Operations", "role": "Operations & Systems Specialist", "name": "Maria Arias", "date": "2026-11-27", "time": "14:00", "text": "I work on the systems behind our operation, so I know how much smoother things run when each role has a clear owner.\n\nThis one does. Our next Senior Sales Account Executive owns the deal from first contact to signed agreement: inbound leads, outbound prospecting, discovery and close. 5+ years of full-cycle B2B sales.\n\nU.S.-based, remote.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs"}, {"dept": "Operations", "role": "Full-Stack AI Engineer", "name": "Jose Raudales", "date": "2026-11-27", "time": "15:30", "text": "I build automation for our team, and I believe in what technology can do. But no tool replaces a great sales conversation with an agency owner.\n\nWe're hiring a Senior Sales Account Executive to have those conversations: 5+ years of full-cycle B2B sales, inbound and outbound, and the persistence to follow up until there's an answer.\n\nU.S.-based, remote.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs"}, {"dept": "Operations", "role": "Junior Zoho System Developer", "name": "Thomas Hinders", "date": "2026-11-27", "time": "17:00", "text": "I help build the CRM our sales team uses every day. I can make the pipeline easier to manage. I can't make the calls.\n\nThat's why we're hiring a Senior Sales Account Executive: a closer with 5+ years of full-cycle B2B sales who works inbound leads, builds new pipeline and keeps every deal moving.\n\nU.S.-based, remote.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs"}, {"dept": "Finance", "role": "Finance Operations Manager", "name": "Kelly Hernandez", "date": "2026-11-28", "time": "08:00", "text": "Working in finance operations, I see every new partnership show up in the business. Each one started with a salesperson who did the work.\n\nWe're hiring a Senior Sales Account Executive with a track record of hitting quota, 5+ years of full-cycle B2B sales and the drive to work both inbound and outbound.\n\nU.S.-based, remote.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs"}, {"dept": "Finance", "role": "Finance Assistant", "name": "Andre Nascimento", "date": "2026-11-28", "time": "09:30", "text": "From the finance side, every new partnership starts with a signed agreement. Someone has to get it there.\n\nWe're hiring a Senior Sales Account Executive who owns that process: first contact, discovery, follow-up and close. 5+ years of full-cycle B2B sales and a track record of hitting quota.\n\nU.S.-based, remote, full time.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs"}, {"dept": "HR", "role": "HR Lead", "name": "Stephanie Stapper", "date": "2026-11-28", "time": "11:00", "text": "In HR, I see what helps people do their best work here: clear goals, real ownership and a team that has their back.\n\nOur next Senior Sales Account Executive will get all three. We're looking for a proactive closer with 5+ years of full-cycle B2B sales who's comfortable with inbound leads and outbound prospecting.\n\nU.S.-based, remote, EST hours.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #RemoteJobs"}, {"dept": "HR", "role": "HR Specialist", "name": "Amanda Torres", "date": "2026-11-28", "time": "12:30", "text": "A lot of what I do is help people find a role where they can grow. This one is for someone who already knows how to sell and wants to own it.\n\nSenior Sales Account Executive at Elevate Teams: 5+ years of full-cycle B2B sales, inbound and outbound, selling to independent insurance agency owners.\n\nU.S.-based, remote.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs"}, {"dept": "Training & Coaching", "role": "Training and Coaching Manager", "name": "Brian Rodrigues", "date": "2026-11-26", "time": "09:30", "text": "In talent development, I see what happens when people own their work. Sales is the same: the best ones don't wait for the phone to ring.\n\nWe're hiring a Senior Sales Account Executive who goes after new business and closes it. U.S.-based, remote.\n\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs"}, {"dept": "Training & Coaching", "role": "Training Team Leader", "name": "Carlos Fortuna", "date": "2026-11-26", "time": "12:30", "text": "I lead our insurance training, so I know what our team members bring to an agency. Now we need someone to show more agency owners.\n\nElevate Teams is hiring a U.S.-based Senior Sales Account Executive with 5+ years of full-cycle B2B sales.\n\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs"}, {"dept": "Training & Coaching", "role": "Senior Trainer", "name": "Mayra Martini", "date": "2026-11-28", "time": "14:00", "text": "I train the professionals our clients hire, and I know how ready they are when they meet an agency. Now we need someone to open more of those doors.\n\nWe're hiring a Senior Sales Account Executive: a proactive closer with 5+ years of full-cycle B2B sales who works inbound and outbound and follows up until there's a decision.\n\nU.S.-based, 100% remote.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs"}, {"dept": "Training & Coaching", "role": "Trainer", "name": "Freddy Romero", "date": "2026-11-28", "time": "15:30", "text": "In training, I tell people that confidence comes from practice. In sales, it comes from hearing no and calling back anyway.\n\nWe're hiring a Senior Sales Account Executive who has that kind of confidence. 5+ years of full-cycle B2B sales, a quota track record and comfort selling to business owners.\n\nU.S.-based, remote.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs"}, {"dept": "Training & Coaching", "role": "Training & Coaching Coordinator", "name": "Juan Martell", "date": "2026-11-28", "time": "17:00", "text": "Our team keeps growing, and so does the number of agencies our trained professionals support. More agencies means more conversations to have.\n\nWe're hiring a Senior Sales Account Executive to lead them. Full-cycle B2B, inbound and outbound, 5+ years of experience and a habit of following up.\n\nU.S.-based, remote, full time.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #RemoteJobs"}, {"dept": "Training & Coaching", "role": "Talent Specialist", "name": "Joao Roos", "date": "2026-11-29", "time": "08:00", "text": "I'm often in the interviews where agency owners meet the person who'll join their team. Every one of those interviews started with a sales conversation.\n\nWe're hiring a Senior Sales Account Executive to have more of them. Someone who builds pipeline, works inbound leads and closes. 5+ years of full-cycle B2B sales.\n\nU.S.-based, remote.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs"}, {"dept": "Training & Coaching", "role": "Coaching and Interview Readiness Specialist", "name": "Laura Lopez", "date": "2026-11-29", "time": "09:30", "text": "I prepare our team members for client interviews, and the first thing I teach is to listen before you talk. The best salespeople already know that.\n\nWe're hiring a Senior Sales Account Executive who listens first, handles objections calmly and doesn't give up after two unanswered messages. 5+ years of full-cycle B2B sales.\n\nU.S.-based, remote.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs"}, {"dept": "Training & Coaching", "role": "Training Assistant", "name": "Felipe Leal", "date": "2026-11-29", "time": "11:00", "text": "Every agency our graduates join started with someone on our sales team getting an owner to say yes.\n\nWe're hiring a Senior Sales Account Executive to make that happen more often. Inbound leads, outbound prospecting, full-cycle B2B, 5+ years of experience.\n\nU.S.-based, remote.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs"}, {"dept": "Training & Coaching", "role": "Training Associate", "name": "Giulia Menezes", "date": "2026-11-29", "time": "12:30", "text": "I love watching people go from unsure to confident in training. In sales, that confidence shows up in how you handle the hard questions.\n\nWe're hiring a Senior Sales Account Executive who handles them well: 5+ years of full-cycle B2B sales, comfortable selling to business owners, inbound and outbound.\n\nU.S.-based, remote.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs"}, {"dept": "Training & Coaching", "role": "Training Associate", "name": "Matheus Martins", "date": "2026-11-29", "time": "14:00", "text": "Our team keeps growing because agency owners keep saying yes. We need another closer to keep that going.\n\nWe're hiring a Senior Sales Account Executive: 5+ years of full-cycle B2B sales, a quota track record and the drive to work both inbound leads and outbound prospecting.\n\nU.S.-based, 100% remote.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs"}, {"dept": "Recruitment", "role": "Recruitment Manager", "name": "Shirley Bacca", "date": "2026-11-24", "time": "15:30", "text": "Most of the roles I recruit for are about finding people who stay and grow. This one is on the sales side.\n\nWe're hiring a Senior Sales Account Executive at Elevate Teams: 5+ years of full-cycle B2B sales, inbound and outbound, selling to independent insurance agencies. U.S.-based, remote.\n\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #Recruiting #SalesJobs"}, {"dept": "Recruitment", "role": "Senior Recruiter", "name": "Hazel Vargas", "date": "2026-11-25", "time": "09:30", "text": "A resume tells me where someone has sold. The interview tells me if they'll keep following up after the third no.\n\nThat's what we're looking for in our next Senior Sales Account Executive: 5+ years of full-cycle B2B sales, a quota track record and proactive prospecting. U.S.-based, remote.\n\nApply or refer someone 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #Recruiting #SalesJobs"}, {"dept": "Recruitment", "role": "Recruiting Coordinator", "name": "Shany Castillo", "date": "2026-11-25", "time": "15:30", "text": "I coordinate a lot of interviews, and the candidates who stand out always ask great questions. In sales, that's half the job.\n\nWe're hiring a Senior Sales Account Executive who runs real discovery, works inbound and outbound and closes. 5+ years of full-cycle B2B sales.\n\nU.S.-based, remote.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #Recruiting #SalesJobs"}, {"dept": "Recruitment", "role": "Recruitment Specialist", "name": "Alex Rodriguez", "date": "2026-11-26", "time": "08:00", "text": "Part of my job is spotting people who own their work. In sales, that means owning the deal from first call to signature.\n\nThat's our next Senior Sales Account Executive. U.S.-based, remote, 5+ years of B2B sales.\n\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\nQuestions? Send me a message.\n\n@Elevate Teams #Hiring #Recruiting"}, {"dept": "Recruitment", "role": "Recruitment Specialist", "name": "Lidia Lopez", "date": "2026-11-23", "time": "15:30", "text": "When I screen for this role, here's what I listen for: someone who has owned deals from first call to signature, built their own pipeline and kept following up when others stopped.\n\nIf that's you, we're hiring a Senior Sales Account Executive at Elevate Teams. 5+ years of full-cycle B2B sales, inbound and outbound.\n\nU.S.-based, remote.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #Recruiting #SalesJobs"}, {"dept": "Recruitment", "role": "Recruitment Specialist", "name": "Paula Romero", "date": "2026-11-23", "time": "09:30", "text": "I'm recruiting for a role that's a little different from what I usually post: Senior Sales Account Executive at Elevate Teams.\n\nWe need a proactive closer with 5+ years of full-cycle B2B sales who can work inbound leads and build their own outbound pipeline. You'd be selling to independent insurance agencies across the U.S.\n\nU.S.-based, remote.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\nQuestions? My DMs are open. 💛\n\n@Elevate Teams #Hiring #Recruiting #SalesJobs"}, {"dept": "Recruitment", "role": "Recruitment Specialist", "name": "Victoria Rodriguez", "date": "2026-11-24", "time": "09:30", "text": "One question I always ask sales candidates: what do you do when a prospect goes quiet? The best answers are never \"move on.\"\n\nWe're hiring a Senior Sales Account Executive who keeps the conversation going until there's a decision. 5+ years of full-cycle B2B sales, inbound and outbound.\n\nU.S.-based, remote.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #Recruiting #SalesJobs"}, {"dept": "Recruitment", "role": "Recruitment Assistant", "name": "Otavio Marcal", "date": "2026-11-26", "time": "11:00", "text": "I help our recruiting team move candidates through the process, and for this role we're looking for something specific: a closer.\n\nSenior Sales Account Executive at Elevate Teams. 5+ years of full-cycle B2B sales, inbound leads plus your own outbound pipeline.\n\nU.S.-based, remote.\nApply here 👉 https://www.linkedin.com/jobs/view/4489952835/\n\n@Elevate Teams #Hiring #SalesJobs"}];
+const VIDEO_DL = "https://drive.google.com/uc?export=download&id=1BM1zhraLYy954jlgSCbwPwqUHGaYZ-Fq", VIDEO_VIEW = "https://drive.google.com/file/d/1BM1zhraLYy954jlgSCbwPwqUHGaYZ-Fq/view?usp=drive_link";
+const TEAM_ORDER = ["Sales","Leadership","Client Success","Recruitment","Marketing","Operations","Training & Coaching","Finance","HR"];
+const $ = s => document.querySelector(s);
+let team = null, person = null;
+
+function etDate(p){ // late Nov 2026: ET = UTC-5
+  const [y,m,d] = p.date.split("-").map(Number), [h,mi] = p.time.split(":").map(Number);
+  return new Date(Date.UTC(y, m-1, d, h+5, mi));
+}
+const fmtDay = new Intl.DateTimeFormat("en-US",{timeZone:"America/New_York",weekday:"long",month:"long",day:"numeric"});
+const fmtDayShort = new Intl.DateTimeFormat("en-US",{timeZone:"America/New_York",weekday:"short",month:"short",day:"numeric"});
+const fmtTime = new Intl.DateTimeFormat("en-US",{timeZone:"America/New_York",hour:"numeric",minute:"2-digit"});
+const localTZ = Intl.DateTimeFormat().resolvedOptions().timeZone;
+const fmtLocal = new Intl.DateTimeFormat("en-US",{weekday:"short",month:"short",day:"numeric",hour:"numeric",minute:"2-digit"});
+
+function store(k,v){ try{ localStorage.setItem(k,v) }catch(e){} }
+function load(k){ try{ return localStorage.getItem(k) }catch(e){ return null } }
+
+function renderTeams(){
+  const el = $("#teams"); el.innerHTML = "";
+  TEAM_ORDER.filter(t => POSTS.some(p => p.dept === t)).forEach(t => {
+    const b = document.createElement("button");
+    b.className = "chip"; b.type = "button"; b.textContent = t;
+    b.setAttribute("aria-pressed", String(t === team));
+    b.onclick = () => { team = t; person = null; store("et-team", t); store("et-name", ""); renderTeams(); renderNames(); renderResult(); };
+    el.appendChild(b);
+  });
+}
+function renderNames(){
+  const el = $("#names"); el.innerHTML = "";
+  if(!team){ el.innerHTML = '<p class="empty">Choose your team first.</p>'; return; }
+  POSTS.filter(p => p.dept === team).sort((a,b)=>a.name.localeCompare(b.name)).forEach(p => {
+    const b = document.createElement("button");
+    b.className = "chip"; b.type = "button"; b.textContent = p.name;
+    b.setAttribute("aria-pressed", String(person === p.name));
+    b.onclick = () => { person = p.name; store("et-name", p.name); renderNames(); renderResult(true); };
+    el.appendChild(b);
+  });
+}
+function renderResult(scroll){
+  const r = $("#result");
+  const p = POSTS.find(x => x.name === person);
+  if(!p){ r.classList.remove("show"); renderSchedule(); return; }
+  const when = etDate(p);
+  $("#who").textContent = p.name.split(" ")[0] + ", you post on";
+  $("#day").textContent = fmtDay.format(when);
+  $("#time").textContent = "at " + fmtTime.format(when) + " ET";
+  const localStr = fmtLocal.format(when);
+  const etStr = new Intl.DateTimeFormat("en-US",{timeZone:"America/New_York",weekday:"short",month:"short",day:"numeric",hour:"numeric",minute:"2-digit"}).format(when);
+  $("#local").textContent = localStr === etStr ? "That’s the same time where you are." : "Where you are (" + localTZ.replace(/_/g," ") + "), that’s " + localStr + ".";
+  const diff = when - new Date();
+  const cd = $("#countdown");
+  if(diff > 0){
+    const days = Math.floor(diff/864e5), hrs = Math.floor(diff%864e5/36e5);
+    cd.textContent = days > 0 ? "In " + days + " day" + (days>1?"s":"") + (hrs? " and " + hrs + " h" : "") : (hrs > 0 ? "In " + hrs + " h" : "Less than an hour to go");
+  } else if(diff > -36e5){ cd.textContent = "It’s time. Post now." }
+  else { cd.textContent = "Your slot has passed. Post as soon as you can." }
+  $("#post").textContent = p.text;
+  $("#dl").href = VIDEO_DL; $("#view").href = VIDEO_VIEW;
+  $("#li").href = "https://www.linkedin.com/feed/?shareActive=true&text=" + encodeURIComponent(p.text);
+  $("#copied").hidden = true;
+  r.classList.add("show");
+  renderSchedule();
+  if(scroll) r.scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block:"start"});
+}
+async function copyText(t){
+  try{ await navigator.clipboard.writeText(t); return true }catch(e){
+    const ta = document.createElement("textarea"); ta.value = t; ta.setAttribute("readonly","");
+    ta.style.position="fixed"; ta.style.opacity="0"; document.body.appendChild(ta); ta.select();
+    let ok=false; try{ ok = document.execCommand("copy") }catch(_){}
+    ta.remove(); return ok;
+  }
+}
+$("#copy").onclick = async () => {
+  const p = POSTS.find(x => x.name === person); if(!p) return;
+  const ok = await copyText(p.text);
+  const c = $("#copied"); c.textContent = ok ? "Copied" : "Select the text above and copy it"; c.hidden = false;
+};
+$("#li").addEventListener("click", () => { const p = POSTS.find(x => x.name === person); if(p) copyText(p.text); });
+
+function renderSchedule(){
+  const byDay = {};
+  [...POSTS].sort((a,b)=>etDate(a)-etDate(b)).forEach(p => { (byDay[p.date] ||= []).push(p) });
+  const el = $("#schedule"); el.innerHTML = "";
+  Object.keys(byDay).forEach(d => {
+    const box = document.createElement("div"); box.className = "day";
+    const h = document.createElement("h4"); h.textContent = fmtDayShort.format(etDate(byDay[d][0])); box.appendChild(h);
+    const ul = document.createElement("ul");
+    byDay[d].forEach(p => {
+      const li = document.createElement("li"); if(p.name === person) li.className = "me";
+      const a = document.createElement("span"); a.textContent = fmtTime.format(etDate(p)) + "  " + p.name;
+      const b = document.createElement("span"); b.textContent = p.dept;
+      li.append(a,b); ul.appendChild(li);
+    });
+    box.appendChild(ul); el.appendChild(box);
+  });
+}
+
+(function init(){
+  const t = load("et-team"), n = load("et-name");
+  if(t && POSTS.some(p=>p.dept===t)){ team = t; if(n && POSTS.some(p=>p.name===n && p.dept===t)) person = n; }
+  renderTeams(); renderNames(); renderResult(false);
+})();
+</script>
+</body>
+</html>
